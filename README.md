@@ -2,9 +2,6 @@
 AWS Patch Manager - AWS Resources. This repo contains AWS Resources and configurations that will help you manage the patching activities of EC2 instances
 
 
-
-
-
 # - Key Components - 
 IAM Roles & Policies: These govern permissions for Patch Manager and Maintenance Window tasks.
 
