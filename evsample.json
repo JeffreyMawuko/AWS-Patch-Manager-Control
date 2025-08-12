@@ -1,0 +1,5 @@
+aws ssm send-command \
+  --targets "Key=tag:PatchGroup,Values=Prod" \
+  --document-name "AWS-RunPatchBaseline" \
+  --parameters "Operation=Install,SnapshotId=,RebootOption=RebootIfNeeded" \
+  --max-concurrency "10%" --max-errors "2"
