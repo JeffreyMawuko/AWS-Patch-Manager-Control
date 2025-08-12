@@ -1,0 +1,16 @@
+{
+  "OperatingSystem": "AMAZON_LINUX_2023",
+  "ApprovalRules": {
+    "PatchRules": [{
+      "PatchFilterGroup": {
+        "PatchFilters": [
+          {"Key": "PRODUCT", "Values": ["AL2023"]},
+          {"Key": "CLASSIFICATION", "Values": ["Security"]},
+          {"Key": "SEVERITY", "Values": ["Critical","Important","Medium"]}
+        ]
+      },
+      "ApproveAfterDays": 7,
+      "EnableNonSecurity": false
+    }]
+  }
+}
