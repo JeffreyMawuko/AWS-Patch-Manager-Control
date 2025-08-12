@@ -58,7 +58,7 @@ Kubernetes/AKS/EKS: Node AMIs patched via rolling Instance Refresh; workloads re
 
 Serverless: Keep runtimes/framework deps current via CI checks.
 
-11) Monitoring, KPIs & Reporting
+## Monitoring, KPIs & Reporting
 Dashboards: SSM Patch Compliance, AWS Config, Security Hub findings.
 
 KPIs:
@@ -77,3 +77,34 @@ Monthly evidence pack: compliance CSV, change records, exception register, and s
 # Identity & Access (Least Privilege)
 Instance Role: AmazonSSMManagedInstanceCore only
 Patch Orchestrator Role (example):
+
+# Network & Hardening Requirements
+SSM, EC2, Logs VPC endpoints required for Prod.
+Outbound egress restricted via NAT/Proxy; allowlists for patch repos (Linux/Windows).
+TLS enforced; OS and package manager configs hardened (CIS where applicable).
+
+# Vulnerability Intelligence & Prioritisation
+Inputs: AWS Inspector, vendor advisories, CISA KEV, CSIRT alerts.
+Prioritise exploitable items and crown-jewel assets first (tag Criticality=High).
+
+# Pre/Post Scripts (Guidance)
+Pre: disk check, service status, LB drain, stop non-critical services.
+Post: verify processes/ports, run smoke tests, re-register with LB, push summary to ticket.
+
+# Hybrid & Third-Party
+On-prem/other cloud hosts registered via SSM Hybrid Activations; same baselines/windows and evidence requirements apply.
+
+# Compliance Mapping (illustrative)
+ISO/IEC 27001: A.8.8 (Management of technical vulnerabilities), A.12.6.1.
+SOC 2: CC7.1/CC7.2 Change management & vulnerability mgmt.
+NIST CSF: PR.IP-12; DE.CM-8.
+CIS Controls v8: 7 (Continuous Vulnerability Management), 16 (Application Software Security).
+
+# Data Protection & Safety
+No secrets in scripts; use Parameter Store/Secrets Manager (KMS-encrypted).
+Backups verified before Prod patching; recovery tested quarterly.
+Patching must not downgrade crypto or disable security agents.
+
+# Continuous Improvement
+Quarterly review of baselines, SLAs, and failure patterns.
+Run game days for emergency patching; update runbooks accordingly.
