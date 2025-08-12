@@ -1,0 +1,8 @@
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {"Effect":"Allow","Action":["ssm:SendCommand","ssm:StartAutomationExecution","ssm:Get*","ssm:List*"],"Resource":"*"},
+    {"Effect":"Allow","Action":["ec2:Describe*","autoscaling:EnterStandby","autoscaling:ExitStandby","autoscaling:UpdateAutoScalingGroup","elasticloadbalancing:DeregisterTargets","elasticloadbalancing:RegisterTargets"],"Resource":"*"},
+    {"Effect":"Allow","Action":["logs:CreateLogGroup","logs:CreateLogStream","logs:PutLogEvents","s3:PutObject"],"Resource":"*"}
+  ]
+}
