@@ -74,4 +74,6 @@ Alerts: Pager/ChatOps for failed patch jobs, non-compliant critical assets, SSM 
 All SSM command invocations, Automation executions, and patch results logged to CloudWatch Logs and S3 with immutability (Object Lock).
 Monthly evidence pack: compliance CSV, change records, exception register, and sample host transcripts.
 
-
+# Identity & Access (Least Privilege)
+Instance Role: AmazonSSMManagedInstanceCore only
+Patch Orchestrator Role (example):
