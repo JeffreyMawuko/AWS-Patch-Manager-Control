@@ -45,17 +45,15 @@ Emergency (zero-day/exploited): Security may invoke Emergency Change; notify CAB
 
 Rollback: Pre-change snapshot/AMI; documented rollback steps; automated validation gates (health checks).
 
-9) Exceptions & Risk Acceptance
+## Exceptions & Risk Acceptance
 Submit exception with: business justification, affected assets, compensating controls (WAF, isolation, IPS rules), and target remediation date.
 
 Expiry: Max 90 days; extensions require CISO approval.
 
 Track all exceptions in a central register linked to assets/tags.
-10) Containers, Images & Build Pipelines
+## Containers, Images & Build Pipelines
 Base Images: Monthly refresh for AMI and container base images (Image Builder/CI).
-
 ECR/Image Scanning: Block deploy on critical vulnerabilities unless approved exception.
-
 Kubernetes/AKS/EKS: Node AMIs patched via rolling Instance Refresh; workloads rebuilt from patched images.
 
 Serverless: Keep runtimes/framework deps current via CI checks.
@@ -68,11 +66,12 @@ KPIs:
 % instances compliant by env (target: Prod ≥ 95%, Non-Prod ≥ 90%).
 
 Mean Time to Patch (MTTP) by severity.
-
 Exposure Days for overdue critical/high.
-
 Failure Rate per patch job.
-
 Alerts: Pager/ChatOps for failed patch jobs, non-compliant critical assets, SSM agent unhealthy.
+
+# Logging, Evidence & Audit
+All SSM command invocations, Automation executions, and patch results logged to CloudWatch Logs and S3 with immutability (Object Lock).
+Monthly evidence pack: compliance CSV, change records, exception register, and sample host transcripts.
 
 
