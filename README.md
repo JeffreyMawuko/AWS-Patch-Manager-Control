@@ -4,11 +4,8 @@ AWS Patch Manager - AWS Resources. This repo contains AWS Resources and configur
 
 # - Key Components - 
 IAM Roles & Policies: These govern permissions for Patch Manager and Maintenance Window tasks.
-
 SNS Notifications: Used to send patching status updates.
-
 Patch Baseline & Groups: Define the patching rules for Amazon Linux 2 instances.
-
 Maintenance Windows: Scheduled tasks for patch scans and installations using cron expressions, ensuring regular updates without manual intervention.
 
 # - How It Works -
