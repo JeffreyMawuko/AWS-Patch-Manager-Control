@@ -1,5 +1,31 @@
-aws ssm send-command \
+ aws ssm send-command \
   --targets "Key=tag:PatchGroup,Values=Prod" \
   --document-name "AWS-RunPatchBaseline" \
   --parameters "Operation=Install,SnapshotId=,RebootOption=RebootIfNeeded" \
-  --max-concurrency "10%" --max-errors "2"
+  --max-concurrency "10%" --max-errors "2" 
+
+
+import json, os, textwrap, pathlib
+
+content = {
+  "DocumentName": "AWS-RunPatchBaseline",
+  "Targets": [
+    {
+      "Key": "tag:PatchGroup",
+      "Values": ["Prod"]
+    }
+  ],
+  "Parameters": {
+    "Operation": ["Install"],
+    "SnapshotId": [""],
+    "RebootOption": ["RebootIfNeeded"]
+  },
+  "MaxConcurrency": "10%",
+  "MaxErrors": "2"
+}
+
+path = "/mnt/data/evsample.json"
+with open(path, "w") as f:
+    json.dump(content, f, indent=2)
+
+path
