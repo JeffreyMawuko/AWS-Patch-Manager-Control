@@ -11,7 +11,7 @@ content = {
   "DocumentName": "AWS-RunPatchBaseline",
   "Targets": [
     {
-      "Key": "tag:PatchGroup",
+      "Key": "tag: PatchGroup",
       "Values": ["Prod"]
     }
   ],
